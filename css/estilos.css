@@ -1,0 +1,18 @@
+body {
+    background-color: #ffa801;
+}
+
+.titulo {
+    margin-left: 50px;
+}
+.pesoPlaneta {
+    border: 1px solid black;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    border-radius: 9px;
+    background-color: blanchedalmond;
+}
+
