@@ -13,7 +13,7 @@
         */
  
     var getPesoUsuario  =  peso_en_tierra = parseFloat(prompt('¿Cuantos kilos pesas en la tierra?'));
-    var planeta         =  parseInt(prompt('Selecciona tu planeta :\n(1) es MARTE \n(2) es JUPITER ')) ;
+    var planeta         =  parseInt(prompt('Selecciona tu planeta :\n(1) es MARTE \n(2) es JUPITER '));
 
     const g_tierra      =  9.8;
     const g_marte       =  3.7;
@@ -22,17 +22,15 @@
     if(planeta == 1)
     {
         /*Formula obtener peso en MARTE*/
-        let peso_final = ((peso_en_tierra / g_tierra) * g_marte)
-            peso_final = peso_final.toFixed(1)
-            alert('Tu peso en MARTE es de: '+ peso_final +' Kg')
+        peso_final = ((peso_en_tierra / g_tierra) * g_marte).toFixed(1)
+        nombre = 'Marte'
     }
 
     else if(planeta == 2)
     {
         /*Formula obtener peso en Jupiter*/
-        let peso_final = ((peso_en_tierra / g_tierra) * g_jupiter)
-            peso_final = peso_final.toFixed(1)
-            alert('Tu peso en JUPITER es de: '+ peso_final +' Kg')
+        peso_final = ((peso_en_tierra / g_tierra) * g_jupiter).toFixed(1)
+        nombre= 'JUPITER'
     }
 
     else
@@ -40,7 +38,7 @@
         alert('¡Ingresa información válida, porfavor!')
     }
 
-
+        alert('Tu peso en '+ nombre +' es de: '+ peso_final +' Kg')
 
 
 
