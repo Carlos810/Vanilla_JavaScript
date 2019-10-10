@@ -20,17 +20,15 @@
     const g_jupiter     =  24.8;  
 
     if(planeta == 1)
-    {
-        /*Formula obtener peso en MARTE*/
+    {       
+        nombre = 'MARTE'
         peso_final = ((peso_en_tierra / g_tierra) * g_marte).toFixed(1)
-        nombre = 'Marte'
     }
 
     else if(planeta == 2)
     {
-        /*Formula obtener peso en Jupiter*/
-        peso_final = ((peso_en_tierra / g_tierra) * g_jupiter).toFixed(1)
         nombre= 'JUPITER'
+        peso_final = ((peso_en_tierra / g_tierra) * g_jupiter).toFixed(1)
     }
 
     else
