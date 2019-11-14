@@ -8,7 +8,10 @@ function getContentClick(event) {
     filterAction(value);    
 }
 
+<<<<<<< HEAD
 //recibe y manda el numero o signo elegido por el usuario
+=======
+>>>>>>> d2d307680457d9b33ca70340bf6e15a4f71b9434
 const filterAction = value => {
     value === '0' ? addNumberInput(0) : null ;
     value === '1' ? addNumberInput(1) : null ;
@@ -21,7 +24,12 @@ const filterAction = value => {
     value === '8' ? addNumberInput(8) : null ;
     value === '9' ? addNumberInput(9) : null ;
     value === '.' ? addNumberInput('.') : null ;
+<<<<<<< HEAD
         
+=======
+    
+    
+>>>>>>> d2d307680457d9b33ca70340bf6e15a4f71b9434
     value === '+'   ?   setOperator('+') : null ;
     value === '-'   ?   setOperator('-') : null ;
     value === 'X'   ?   setOperator('X') : null ;
@@ -43,6 +51,11 @@ function addNumberInput(value) {
 
     if(inputValue === '0' && inputValue.length === 1 && value !== '.') {
         inputScreen.value = value;
+<<<<<<< HEAD
+=======
+        // console.log('dentro del IF: ' + inputScreen.value)
+        // console.log(typeof inputScreen.value)
+>>>>>>> d2d307680457d9b33ca70340bf6e15a4f71b9434
         return;
     }
 
@@ -52,6 +65,10 @@ function addNumberInput(value) {
     }
 
     inputScreen.value = inputValue + value;
+<<<<<<< HEAD
+=======
+    // console.log('# acumulador ' + (inputScreen.value = inputValue + value) )
+>>>>>>> d2d307680457d9b33ca70340bf6e15a4f71b9434
 }
 
 //setea los valores de los signos en la calculadora
