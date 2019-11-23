@@ -3,21 +3,21 @@ const API_KEY = '445e2f1c3c3b37faf4a98b983577e886';
 
 document.addEventListener('DOMContentLoaded', () => {
     renderNewsMovies()
-    renderPopularMovies()
-    renderTopRatedMovies()
+    renderListMovies('popular', 'now-playing_list')
+    renderListMovies('top_rated', 'top-rated-playing_list')
 });
 
-const getNewsMovies = () => {
-    const url = `${URL_PATH}/3/movie/now_playing?api_key=${API_KEY}&language=es-ES&page=1`;
-
+const getMovies = (filmGroup) => {
+    const url = `${URL_PATH}/3/movie/${filmGroup}?api_key=${API_KEY}&language=es-ES&page=1`;    
+    
     return fetch(url)
-        .then(response => response.json())
-        .then(result => result.results)
-        .catch(error => console.log(error));
+    .then(response => response.json())
+    .then(result => result.results)
+    .catch(error => console.log(error));
 }
 
 const renderNewsMovies = async () => {
-    const newMovies = await getNewsMovies();
+    const newMovies = await getMovies('now_playing');
     
     let html = '';
 
@@ -52,18 +52,8 @@ const renderNewsMovies = async () => {
     document.getElementsByClassName('list-news-movies')[0].innerHTML = html;
 }
 
-const getPopularMovies = () => {
-    const url = `${URL_PATH}/3/movie/popular?api_key=${API_KEY}&language=es-ES&page=1
-    `;
-    
-    return fetch(url)
-        .then(response => response.json())
-        .then(result => result.results)
-        .catch(error => console.log(error))
-}
-
-const renderPopularMovies = async () => {
-    const movies = await getPopularMovies();
+const renderListMovies = async (filmGroup, targetId) => {
+    const movies = await getMovies(filmGroup);
 
     let html = '';
     movies.forEach((movie, index) => {
@@ -80,40 +70,9 @@ const renderPopularMovies = async () => {
                 </li>
             `;
         }
-        document.getElementsByClassName('now-playing_list')[0].innerHTML = html;
+        document.getElementsByClassName(targetId)[0].innerHTML = html;
     })
     
 }
 
-const getTopRatedMovies = () => {
-    const url = `${URL_PATH}/3/movie/top_rated?api_key=${API_KEY}&language=es-ES&page=1
-    `;
-
-    return fetch(url)
-        .then(response => response.json())
-        .then(result => result.results)
-        .catch(error => console.log(error))
-}
-
-const renderTopRatedMovies = async () => {
-    const movies = await getTopRatedMovies();
-    
-    let html = "";
-    movies.forEach((movie, index) => {
-        const {id, title, poster_path} = movie;
-        const movieCover = `https://image.tmdb.org/t/p/w500${poster_path}`;
-        const urlMovie = `../movie.html?id=${id}`;
-
-        if(index < 5) {
-            html += `
-                <li class="list-group-item">
-                    <img src="${movieCover}" alt="${title}">
-                    <h3>${title}</h3>
-                    <a href="${urlMovie}" class="btn btn-primary">Ver más</a>
-                </li>
-            `
-        }
-    })
-    document.getElementsByClassName('top-rated-playing_list')[0].innerHTML = html; 
-}
 
